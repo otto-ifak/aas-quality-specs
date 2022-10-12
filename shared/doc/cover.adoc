@@ -1,0 +1,1 @@
+image::../shared/media/cover.jpeg[image,width=793,height=1121]

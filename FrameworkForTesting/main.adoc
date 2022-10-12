@@ -1,0 +1,592 @@
+:toc: macro
+:sectnums:
+
+include::../shared/doc/cover.adoc[]
+<<<
+include::../shared/doc/imprint.adoc[]
+
+Recent Revision:
+
+Version history
+
+[width="100%",cols="11%,14%,15%,60%",options="header",]
+|===
+|Revision |Originator |Date |CHANGES made
+|0.1 |Ch. Diedrich |2022-03-01 |Start of Initial IDTA Test Framework
+Specification
+
+|0.2 |M. Riedl |2022-04-13 |Minor modifications for terms / drawings
+
+|0.3 |D.Tenhagen |2022-04-27 |Slight Editorial
+changes/comments/corrections
+
+|0.5 |M. Riedl |2022-06-10 |Integration of comments
+|===
+
+<<<
+
+toc::[]
+
+<<<
+
+== General
+
+=== About this document – Management Summary
+
+This guideline defines the measures for testing and certifying Asset
+Administration Shells and associated components in the organization
+Industrial Digital Twin Assiciation e.v. (IDTA). The guideline takes
+into account the ISO guides concerning conformance inspection and
+certification (ISO 9646), the harmonization efforts of the European
+Community (EN series EN 45 0xx), and additional requirements of the
+IDTA.
+
+This document defines the basic terms, the organizational setup and the
+structure of the quality assurance measures as well as the measures
+required to implement these. For ease of understanding, reference is
+made to a number of appendices containing detailed definitions.
+
+Authorized testing tools and potential independent institutions carry
+out the tests for certification of Asset Administration Shells and
+associated components. The IDTA operates a Certification Office.
+
+This guideline was developed in Quality Management Group (QMG) of IDTA,
+and was released by the Board of Directors of the Industrial Digital
+Twin Assiciation e.V. (IDTA),
+
+Lyoner Strasse 18 +
+60528 Frankfurt am Main +
+GermanyGermany.
+
+The current version is the result of an initil version by QMG in April
+2022.
+
+===  General overview of IDTA Quality Management process
+
+The quality management process includes the steps shown in Figure 1.
+
+* It begins with the specification of the AAS and the associated
+components and infrastructure aspects (AAS-related specifications), e.g.
+sub-model templates, interfaces, registry and authentication mechanisms.
+These specifications are the test items. These are to be made available
+to the IDTA public in an IDTA review process as given in [4], Section
+9.3.1 and any incoming comments are to be incorporated. This results in
+a release version of the specification.
+* The test cases should then be defined for precisely these, which shall
+also be qualified in an IDTA review. These also have a version that is
+unique to the initial specification.
+* These test case specifications are converted into implementable test
+cases and implemented/executed with a suitable test system.
+* The test system has also been qualified through a suitable process,
+with experts or institutions appointed for this purpose. This requires
+at least one implemented component of the test object. The
+implementation of a test object is referred to as "System under Test"
+(SuT). The test system qualified in this way also has a version that is
+clearly related to the other specifications.
+* During the specification and review work, a change request database is
+maintained for all specifications and the test system, in which all
+comments and other annotations and errors are documented and evaluated
+by the respective working committees.
+
+With release, the test system is released for the users and can then
+provide the corresponding test reports. Corresponding certificates can
+then be derived from the test reports, which is done by an
+Administration Shell Certification Office (ASCO), an institution of the
+IDTA office.
+
+When creating the certificates, it makes sense to also provide a list of
+the certified products and components that can be accessed via the web,
+for example, in order to enable users to make a targeted selection of
+products with certificates.
+
+image:media/process.svg[image]
+
+[#_Ref97472280 .anchor]####Figure 1: Quality Management process -
+Overview
+
+== Definitions
+
+=== Abbreviations
+
+AAS Asset Administration Shell
+
+ASCO Administration Shell Certification Office
+
+ASTL Administration Shell Test Lobaratory
+
+BOT Begin of Test
+
+EOT End of Test
+
+QM Quality Management
+
+QMG Quality Management Group
+
+SUT System under Test
+
+=== IDTA Certification System for Asset Administration Shells and associated components
+
+A set of procedural and administrative rules implementing the
+certification of conformance and interoperability of Asset
+Administration Shells and associated components.
+
+===  IDTA Administration Shell Certification Office (ASCO)
+
+The Certification Office is set up by IDTA to issue Certificates for
+Asset Administration Shells and associated components. The ASCO can be
+contacted via email certification@idtwin.org.
+
+===  IDTA Administraion Shell Test Laboratory (ASTL)
+
+An organization, which is authorized by IDTA to perform Prototype Tests
+for certification. An audit performed periodically by IDTA assures that
+such a test laboratory is competent to carry out certain tests or types
+of tests (accreditation scope). A formal Certificate confirms that a
+test laboratory is audited as an IDTA Test Laboratory (IDTL).
+
+=== Certification of conformance/interoperability of Asset Administration Shells and associated components 
+
+Certification of conformance / interoperability is a measure of the IDTA
+Administration Shell Test Lobaratory and IDTA Administration Shell
+Certification Office which duly shows that an AAS product complies with
+the relevant international standards and corresponding guidelines issued
+by IDTA.
+
+===  Product
+
+Subject is the Asset Administration Shells and it associated components
+in the context of [1], [2], [3]
+
+=== IDTA Certification Test
+
+Certification Test follows approved test procedures of IDTA and performs
+a released set of relevant test cases that have to be passed for
+obtaining a IDTA Certificate.
+
+=== IDTA Test Report (Test Report)
+
+A standardized document containing the test results and other
+information relevant to a Certification Test. On completion of an
+appropriate test, the Test System issues the Test Report. It contains
+unequivocal statements about the result of the general test – pass or
+fail. Ther test Report is generated by the Test System.
+
+=== IDTA Certificate (Certificate)
+
+A document showing that the tested product complies with the relevant
+standard and with the corresponding guidelines.
+
+=== Test methods
+
+Technical procedures to determine if the behavior of Asset
+Administration Shell and associated components are in line with the
+standards and guidelines. The test procedures are described in Test Case
+Specifications and are implemented in Test Case Implementation
+Specifications.
+
+=== Asset Administration Shell Conformance Test
+
+The Conformance Test refers to the testing of an AAS for the presence of
+certain properties required in the relevant Standards and Test
+Specifications. The product is tested against a Test System. The
+Conformance Test examines properties that are mandatory for the use of
+the product and properties that are optional. A test of other
+characteristics not described in the Standards or Test Specifications,
+such as internal interfaces, reliability are not carried out within the
+framework of the Conformance Tests.
+
+=== Asset Administration Shell Interoperability Test
+
+The IDTA Interoperability Test refers to the test of an AAS product
+against a set of other IDTA SuT in a heterogeneous product environment.
+
+Note: The more products are tested against each other, the higher the
+achieved degree of interoperability.
+
+A IDTA SuT is interoperable if it fulfills the properties required in
+the Interoperability Test specification during operation in an existing
+test system comprising IDTA SuT and does not lead to an unacceptable
+influence on the overall system functions.
+
+=== Standard
+
+A technical specification describing the information model, the
+interface, functional behaviour and accompanying rules and constraints
+of a SuT.
+
+=== Test Specification
+
+A document describing the test requirements and the functionality that
+is tested during a Certification Test. It is publicly available and
+references the relevant Standards. The described tests can be carried
+out automatically and/or manually by the test engineer and the available
+Test Engine. In some cases, the Test Specification and the Test Case
+Specification are integrated in a single document.
+
+=== Test Case Specification
+
+A document describing the test sequences that have to be performed and
+the expected test results. It is based on the Test Specification and
+describes the tested functionality including the information on how the
+test cases are performed. The Test Case Specification is also publicly
+available. The Test Case Specifications are normally available in human
+readable form. In some cases, the Test Specification and the Test Case
+Specification are integrated in a single document.
+
+=== Test Case Implementation Specification 
+
+This specification is based on the Test Case Specification and describes
+the details for the software to be run in the Test System.
+
+The Test Case Implementation Specification defines the series of actions
+that stimulate a SuT in a defined manner expecting a defined reaction.
+The related content is available as implemented software which is part
+of a Test System.
+
+=== Test System
+
+The test System consist of
+
+* A software that predefines the test patterns,
+* Test case specification
+* Test case implementation specification
+* any additional components (software or hardware),
+* and associated documentations
+
+=== Applicant
+
+The Applicant refers to any organization or person that submits a
+request to Administration Shell Certification Office for the issuing of
+a Certificate. The Applicant can be the manufacturer of the SuT, a
+processing company or a dealer.
+
+=== System under Test (SuT)
+
+Software System with one of the IDTA technologies which is a candidate
+for a certification and which has to be tested according to the Test
+Specification.
+
+== Organizational Entities
+
+The Quality Management system is formed by the following organizational
+entities:
+
+===  Board of Directors
+
+The Board of Directors of IDTA is responsible for the establishment of
+the Quality Management System in the name of IDTA. Its tasks include:
+
+* Approval of all quality management measures including the IDTA
+Certification System.
+* Supervision of the implementation of the rules of the IDTA
+Certification System.
+* Supervision of the Administration Shell Certification Office and
+Administration Shell Test Laboratories.
+
+===  Advisory Board
+
+The Advisory Board of IDTA gives consultancy assistance to the Board of
+Directors. It reviews the technical specifications as well as the Test
+Specifications on behalf of IDTA. The Advisory Board is also responsible
+for the arbitration of all matters concerning the Quality Management
+System of IDTA.
+
+=== IDTA Nomenclature of documents
+
+Following nomenclature of documents is aused in IDTA:
+
+* Guideline provides only the title
+* Specification of AAS use the document numbers between 1000 - 1999
+* Specification of Submodels use document numbers starting with 2000
+* Version and subversion of the documents are given by following format:
+xx.yy
+
+===  IDTA Committee “Quality Management” (QM)
+
+QM is the expert committee of IDTA being responsible for quality issues
+of products following AAS specifications.
+
+The Committee is comprised of several working streams which are
+established according to the "Guidelines for the Committees and Project
+Groups/Working Groups of IDTA". Each of the QM working stream is
+responsible for a specific AAS technology.
+
+Employees of all members of IDTA (manufacturers, system integrators, end
+users, test labs) who are active in technology working groups can become
+members of the Working Groups of QM.
+
+The Administartion Shell Test Laboratories are obliged to delegate
+members to the QM Working Groups (WG). At least one representative per
+ASTL shall join the meetings regularly. Apart from exceptional cases, it
+is not acceptable to be absent in two consecutive meetings. If that
+happens, an extra accreditation is necessary.
+
+===  IDTA Working Group Open Technology
+
+The task of the Technical Committees is development of the IDTA
+technologies. They are structured in Project Groups (PG). These Project
+Groups (PG) are responsible to develop and to maintain technical
+specifications. A detailed description of the IDTA Committees may be
+obtained from the IDTA Website.
+
+===  WG Marketing 
+
+This is the expert committee of IDTA being responsible for marketing
+issues of of products following AAS specifications. It consists of a
+number of Working Steams (WG) that are responsible for certain
+industries and/or technologies.
+
+== Documents
+
+=== Documents organizing the IDTA certification processes
+
+There are the following documents:
+
+* Framework for Testing and Certification (this document)
+* How to Get a Certificate for a XX
+* Test System Life Cycle
+* How to Become and to Run an Accredited Test Laboratory
+
+image:./media/documents.svg[image]
+
+[#_Toc100744286 .anchor]####Figure 2: IDTA QM documents
+
+=== Operational Documents
+
+The relation and interactions between the entities are ruled by a set of
+documents. There are the following document types:
+
+[#_Toc97477357 .anchor]####Table 1: Relevant operational documents for
+IDTA QM
+
+[width="100%",cols="58%,42%",]
+|===
+|*Document types* |*Availability*
+
+|Standards and technical specifications (e.g., AASiD Part1, AASiD Part
+2) |Public
+
+|Test Specifications |Public
+
+|Test Case Specifications / Test Case Implementation Specifications
+|Public with the Test System
+
+|Test instructions |Public with the Test System
+
+|Accepted test exception collection |QM
+
+|Test Reports |Applicant, ASCO, (ASTL)
+
+|Product Certificate |Applicant and ASCO
+
+|ASTL audit reports |Affected ASTL, Board of Directors, Advisory Board,
+ASCO
+
+|ASTL audited certificates |Public
+|===
+
+Related Documents and References:
+
+For each accreditation topic there are the following documents (it can
+be that multiple documents are composed in one document) and available:
+
+* Standard of the technology
+* Test Specification
+* Test Engine
+** Test Case Specification
+** Test Case Implementation Specification (optional)
+** Test Instructions (optional)
+** Test Engine Hardware (optional)
+
+The up-to-date list of scopes which can be certified and the test topics
+are announced and published via IDTA (e.g. via idtwin.org ).
+
+In case a regulation and/or its wording and/or definitions stated in
+this document are in any conflict or contradiction of any other
+regulatory test topic documents, the regulatory content of those
+documents are prior.
+
+=== Validity of documents 
+
+All valid documents provide a consistent versioning. The documents of
+the current valid versions are always available at the appropriate
+Project Group on https://industrialdigitaltwin.org/ for the coordination
+of the certification processes. These documents define:
+
+* The version of the reference Standard that serves as the basis.
+* The Test System and documents that shall be used by the respective
+applicants
+* BOT and EOT for a test system
+
+These documents shall be made available consistently within the WG and
+published in the Release Packages of the Test System.
+
+== Responsibilities of the entities involved and their interactions
+
+=== Interactions between the actors
+
+Figure 3 shows the proposed interactions between the actors involved in
+the certification process of a product. It is assumed that the ASTL uses
+always the test equipment as eleased by IDTA.
+
+image:./media/actors.svg[image]
+
+[#_Ref100744097 .anchor]####Figure 3: Actors and their interactions
+
+=== Standardized Test Systems for Asset Administration Shell and assiociated components
+
+The Applicants shall use the standardized IDTA test system for the SuT
+with the valid version (after BoT and before EoT).
+
+=== Begin of Test and End of Test
+
+The Begin of Test (BOT) and End of Test (EOT) are linked to the version
+of a specification, Test Specification or a Test System. If a new
+version of the Test System only consists of bug-fixes or compatible
+changes the BOT and EOT are recommended by the responsible Working
+Group. This requires acknowledgement from the responsible marketing
+group. The decision is taken by the Advisory Board.
+
+The BOT and EOT are visible in the Release Packages of the Test System.
+The dates of BOT and EOT are published in the IDTA member’s newsletter.
+
+In addition to the released new version of the Test System, older
+versions remain valid according to the definition in 4.3. If errors
+occur in older versions, tests are performed with the new process; only
+the test case scope of the older version applies. If the behavior of the
+test cases has changed, a decision shall be made on a case-by-case basis
+among QM and the related marketing WG and technology Project Group of
+the related technology.
+
+=== Development of Test Engine
+
+The Test Engine development is driven by the technology, marketing, test
+project and working groups. For this process there is an own life cycle
+process defined (see document “Test system life cycle”).
+
+=== Establishment of Administration Shell Test Laboratories
+
+The establishment and the performance of IDTA Administration Shell Test
+Laboratories shall be governed by “How to Become and to Run an Audited
+Administration Shell Test Laboratory”.
+
+The test laboratory candidate has to be audited by an auditor appointed
+by the Board of Directors in accordance with “How to Become and to Run
+an Audited PI Test Laboratory”. In the event of a favorable audit,
+appropriate demand and verification of economic operation, the Board of
+Directors will accredit the PITL which is to be confirmed by Advisory
+Board.
+
+The IDTA Administration Shell Certification Office keeps a list of
+audited ASTLs and supervises the ASTLs.
+
+=== Obtaining a Product Certificate
+
+The procedure of obtaining Certificates is described in “How to Get a
+Certificate for a XX”. XX is representing the technology which id
+covered by this Certificate.
+
+=== Rights and obligations related to Certificates
+
+Applicants get the following rights for SuT with Certificates that are
+granted by the IDTA Administration Shell Certification Office:
+
+* To use the correspondent “certified” trademark (if existing) on the
+certified products and the corresponding documentation
+* To declare conformance with corresponding PI specifications.
+
+By applying for a Certificate the Applicant accepts the following
+obligations:
+
+* Agrees that the product is listed in the IDTA catalogue under the
+section “certified products”
+* To inform the IDTA Administration Shell Certification Office without
+delay if the preconditions for granting the Certificate are not
+fulfilled any longer.
+
+=== Setting up the IDTA Administration Shell Certification Office
+
+The Board of Directors sets up the IDTA Administration Shell
+Certification Office to implement the Certification System and issuing
+Certificates and supervises the performance of the PI Certification
+Office.
+
+=== Arbitration procedure
+
+To solve conflicts between the Applicants and the ASCO or ASTL (for
+example if an Applicant disagrees with the results of the ASTL or its
+conclusion), the IDTA Administration Shell Certification Office can
+request clarification from the QMG in an arbitration procedure.
+
+In this case, both the Applicant must submit a statement of their own on
+the disputed test results to the Administartion Shell Certification
+Office.
+
+The Administartion Shell Certification Office will forward the dispute
+together with all arguments to the chairman of QM. The members of QM
+working streams will discuss the matter and come to a proposal for a
+resolution. The QMG will discuss the proposal and will finally decide
+the disputed subject.
+
+=== Changes in IDTA products
+
+In case of a change of a certified IDTA product, the Certificate becomes
+invalid. Further regulations are defined in “How to Get a Certificate
+for an IDTA xxx”.
+
+=== Change of Test Specification
+
+If there is a change in the Test Specifications the Advisory Board may
+decide whether the Certificates issued previously will stay valid or
+terminate either immediately or after the expiration of the
+Certificate’s validity.
+
+Further QM shall propose a date on that the new Test Specification
+version will become valid for testing ("Begin of test (BOT)” and the
+previous version of the Test Specification will become invalid (“End of
+test (EOT)”.
+
+=== Cooperation between working groups for definition of the Test Specification
+
+As the technical specifications are incrementally improved, the
+synchronization between the work of the Project Groups of the IDTA
+Committees Open Technology, Quality Managerment and Marketing shall
+commonly define or update the Test Specification. The related marketing
+WG has to be involved. A test system development process has to be
+initiated by the technology working group leader.
+
+=== Cooperation between working groups in the certification process
+
+Test Specifications are developed in a common work between the IDTA
+technology Project Groups, the responsible Marketing and the WG Quality
+Management Group.
+
+The revisions of technical specification, test specifications, Test
+Engine specification shall be consistent.
+
+=== Withdrawal of the Certificate
+
+A Certificate may be withdrawn if the Applicant is misusing it.
+
+A misuse is defined as e.g., if a SuT deviates from the tested prototype
+for which a Certificate was granted to such a degree that conformance
+and interoperability can no longer be guaranteed.
+
+== Explanations on used table formats
+
+=== General
+
+xx
+
+== Bibliography
+
+[arabic]
+. IEC: CDV IEC 63278-1 ED1: Asset Administration Shell for industrial
+applications - Part 1: Asset Administration Shell structure
+. IEC: PNW 65-915 ED1 - Asset Administration Shell for Industrial
+Applications - Part 2: Information meta model
+. IEC: PNW 65-916 ED1 - Asset Administration Shell for Industrial
+Applications - Part 3: Security provisions for Asset Administration
+Shells
+. IDTA: IPR Policy
+
