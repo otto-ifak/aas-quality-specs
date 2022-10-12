@@ -1,0 +1,11 @@
+name: create-pdfs
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: asciidoctor/docker-asciidoctor
+      volumes:
+        - ./:/documents
+    steps:
+      - run: asciidoctor-pdf ProcessDescription/main.adoc -o output.pdf
