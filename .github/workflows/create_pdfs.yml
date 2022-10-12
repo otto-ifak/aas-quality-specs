@@ -8,4 +8,5 @@ jobs:
       volumes:
         - ./:/documents
     steps:
-      - run: asciidoctor-pdf ProcessDescription/main.adoc -o output.pdf
+      - uses: actions/checkout@v3
+      - run: docker run -it -v $PWD:/documents asciidoctor/docker-asciidoctor asciidoctor-pdf ProcessDescription/main.adoc -o output.pdf
