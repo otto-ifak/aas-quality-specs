@@ -3,10 +3,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container:
-      image: asciidoctor/docker-asciidoctor
-      volumes:
-        - ./:/documents
     steps:
       - uses: actions/checkout@v3
       - run: docker run -it -v $PWD:/documents asciidoctor/docker-asciidoctor asciidoctor-pdf ProcessDescription/main.adoc -o output.pdf
