@@ -1,0 +1,193 @@
+:toc: macro
+:sectnums:
+
+include::../shared/doc/cover.adoc[]
+<<<
+include::../shared/doc/imprint.adoc[]
+
+Version history
+
+[width="100%",cols="20%,14%,20%,46%",options="header",]
+|===
+|Revision |Originator |Date |CHANGES made
+|0.1 |M. Riedl |2022-01-01 |Initial IDTA-Specification
+|0.2 |K. Meinecke |2022-08-02 |API Workflow
+|0.3 |A. Orzelski |2022-09-30 |Minor changes
+|===
+
+<<<
+
+toc::[]
+
+<<<
+
+== General
+
+=== About this document – Management Summary
+
+One representation of the Asset Administration Shelle is the AASX
+Package which contains all elements of the AAS and the related documents
+The AASX package is based on the AASiD part 1 specification. IDTA
+provides a web based test system. The definitions and general rules are
+fixed in Document 1: “Framework for Testing and Certification”. After
+having passed the test successfully the manufacturer can apply for a
+certificate which underlines the compliance of the tested AAS. With this
+intention in mind this conformity test is called “Certification Test”
+below.
+
+This guideline describes the procedures necessary for the attainment of
+a Certificate for an AASX Package.
+
+== Definitions and Abbrevations
+
+The definitions and abbreviations are original defined in “Framework for
+testing”. That document is the valid one if differences are identified.
+
+[width="100%",cols="15%,25%,60%",options="header",]
+|===
+|BoT |Begin of Test |
+|EoT |End of Test |
+|SuT |System under test |
+|ASCO |Administration Shell Certification Office |
+|IDTA |Industrial Digital Twin Association |
+| | |
+|===
+
+== Reference and related documents
+
+[width="100%",cols="14%,86%",options="header",]
+|===
+|[1] |
+| |
+| |
+| |
+|===
+
+== The way to the certificate
+
+In the following the process of acquiring a certificate for an AASX
+package is described. An AASX package (simply called _package_ in the
+following) is a single file following the AASX package specification
+“Details of the Asset Administration Shell - Part 1”. Consequently, the
+certificate states the compliance of a specific package for a specific
+version of the AASX specification.
+
+The certification process is carried out on the website
+https://aas-test.ifak.eu (simply called _website_ in the following).
+
+===  Prerequisites
+
+In order to submit test subjects an account is mandatory. To obtain an
+account, visit the website and click the “Register” button. Then provide
+the following information in the registration form:
+
+* Company name
+* Company address
+* Contact details, including
+** email address
+** telephone number
+* Asset, submodel(s) to be tested
+* Password
+
+After submitting your registration, the contact details will be verified
+manually. Finally the account is unlocked which grants access to the
+certification system.
+
+===  Submitting a package for test
+
+==== Manual Package Submission
+
+In order to submit a test subject one has to log in to the website using
+the account credentials. If you don’t have an account, please register
+via the website. Then click the “Submit Package for Test” button to
+start the submission process.
+
+In the following form, select the AAS package to test. Optionally, one
+may want to select an older specification to test against. Finish the
+submission by hitting the “Submit” button.
+
+In the following the test subject is scheduled for the testing procedure
+as described in the Test Case Specification. This will not require any
+manual interaction. One will be notified about completion via email.
+
+Please make sure to safely store the submitted package because it will
+be deleted from the certification system after testing.
+
+==== Automated Package Submission
+
+In order to test Packages as part of an automated process, packages can
+be uploaded via the API of the same website. The API is documented via
+the website (https://aas-test.ifak.eu/doc) itself. This interface can be
+used to upload assets, to retrieve test results and to verify if an
+asset is certified. As Authentication for the usage of most of the API
+functions a token based authentication is required. These tokens can be
+created via the webinterface.
+
+==== Automated Package Information Retrieval
+
+In the same way AASX packages can be submitted, assets and packages can
+be queried via the API. This includes test results, certificates etc. As
+Authentication for the usage of most of the API functions a token based
+authentication is required. These tokens can be created via the
+webinterface.
+
+===  Test report
+
+After completion, a test report will be generated and made available on
+the website. In contains the following information:
+
+* sha-256 hash of the uploaded package
+* date and time of the submission
+* a list of test suites including status (failed/passed)
+* version of the testing tools used
+* version of the test case specification
+* version of the specification (as selected during submission)
+
+If the test succeeded, i.e. all test suites are listed as passed, a
+certificate for the package can be requested.
+
+===  Application of the Certificate at ASCO
+
+There are two variants of certificates:
+
+* The *digital certificate* is provided as PDF file and can be
+downloaded directly from the website. To ensure verifiability it is
+signed using the ASCO’s private key (the corresponding public key is
+available on the website).
+* The *physical certificate* is provided in paper-form and is physically
+signed. It can be requested on the website using the “Request Physical
+Certificate” button. It will be send to your company address as provided
+during account registration.
+
+____
+Regardless of the appearance of the certificate the contained
+information is the same:
+____
+
+* sha-256 hash of the uploaded package
+* date and time of the certificate creation
+* version of the testing tools used
+* version of the test case specification
+* version of the specification (as selected during submission)
+* url to the test report on the website (as text and QR code)
+
+===  Prolongation of a Certificate
+
+As certificates for packages will not expire, there is no way to prolong
+a certificate. However, the specification or the test case specification
+associated with the certificate may expire rendering the certificate
+with respect to the new specification. In this case you should submit an
+updated package on the website as described above to obtain a new
+certificate.
+
+== Explanations on used table formats
+
+=== General
+
+xx
+
+== Bibliography
+
+[1] ccccc
+
+www.industrialdigitaltwin.org
