@@ -4,9 +4,9 @@ set -e
 
 declare -a documents=(
     "AasxTestCaseSpec"
-#    "FrameworkForTesting"
-#    "HowToGetAasxCertificate"
-#    "ProcessDescription"
+    "FrameworkForTesting"
+    "HowToGetAasxCertificate"
+    "ProcessDescription"
 )
 
 for i in "${documents[@]}"
