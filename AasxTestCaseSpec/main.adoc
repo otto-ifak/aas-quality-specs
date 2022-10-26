@@ -280,4 +280,6 @@ failed.
 Please note, that the table above does not include constraints, which
 are not checkable (e.g., if it involves resolving references).
 
+The following constraints are not checkable: AASd-xyz.
+
 www.industrialdigitaltwin.org
