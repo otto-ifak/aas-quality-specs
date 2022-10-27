@@ -119,7 +119,7 @@ procedure to the end)
 * otherwise, i.e., all steps are passed, the overall test is flagged as
 passed
 
-== Testing Procedures
+== Testing Procedure
 
 The testing procedure differs according to the profile. The test profile
 might be either provided by the user or is selected automatically as
